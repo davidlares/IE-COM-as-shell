@@ -10,13 +10,13 @@ ie = Dispatch("InternetExplorer.Application")
 ie.Visible = 0
 
 # HTTP parameter for the POST
-url = "http://192.168.2.119"
+url = "http://192.168.1.111:8000"
 flags = 0
 targetFrame = ""
 
 while True:
     # we tell IE to access certain address
-    ie.Navigate("http://192.168.2.119")
+    ie.Navigate("http://192.168.1.111:8000")
     # wait for the page is loaded completely
     while ie.ReadyState != 4:
         sleep(1)
