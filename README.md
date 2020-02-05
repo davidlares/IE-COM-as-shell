@@ -10,11 +10,11 @@ Basically not all traffic relies on a built-in server firewall, but a local fire
 2. It can be considered as a back-up browser, that nobody cares or updates occasionally.
 3. Works very well of COM Objects
 
-# Background
+## Background
 
 Microsoft offers a "component object model" or `COM object` which is software that enables inter-process communication. This `COM` interface creates an object (programmatically) to control and automate multiple related built-in software such as Excel, Outlook, IE and many others
 
-# The plan
+## The plan
 
 Use the `client.py` file to control the `IE Browser` to force a connection to Kali on the background for bypassing a possible firewall
 policy. This file initiates an IE process in the background, then use the `iexplore.exe` and transfer the data using GET/POST back and forth between machines
